@@ -14,12 +14,12 @@ const Navbar = () => {
   return (
     <>
       <nav className="flex py-1 mx-auto justify-around shadow-lg items-center">
-        <div className="flex border-2 flex-col border-[#000] justify-between items-center max-w-5xl w-full sm:flex sm:flex-row sm:px-12 sm:justify-between">
-          <div className="flex justify-between border-2 border-[#000] w-full">
-            <div className="p-1 border-2 border-[#000]">
+        <div className="flex flex-col justify-between items-center max-w-5xl w-full sm:flex sm:flex-row sm:px-12 sm:justify-between">
+          <div className="flex justify-between w-full">
+            <div className="p-1">
               <img className="w-[65x] h-[60px]" src={Coffe} alt="" />
             </div>
-            <div className=" flex-col gap-y-1 min-[805px]:hidden block max-[800px]:m-5 border-2 border-[#000]">
+            <div className=" flex-col gap-y-1 min-[805px]:hidden block max-[800px]:m-5">
               <button
                 onClick={handleNav}
                 type="button"
@@ -140,15 +140,40 @@ const Navbar = () => {
       <div
         className={
           openNavbar
-            ? "flex justify-between bg-gray-300 w-full rounded-b-xl absolute z-10"
+            ? "flex justify-between bg-[#f3f4f6] w-full rounded-b-xl absolute z-10"
             : "hidden"
         }
       >
         {/* Mobile Navigation Items */}
-        <div className="h-32 py-32">
-          <ul>
-            <li>OKOK</li>
-          </ul>
+        <div className="flex mx-auto w-full justify-around flex-row p-4 ">
+          <div className="flex flex-col space-y-5">
+            <Link
+              className="flex mx-auto font-sans font-bold text-[#4b5563] 
+              hover:text-[#eab308] hover:duration-300 cursor-pointer"
+              to="/"
+            >
+              Home
+            </Link>
+            <Link
+              className="flex mx-auto font-sans font-bold text-[#4b5563]   
+              hover:text-[#eab308] hover:duration-300 cursor-pointer"
+              to="/product"
+            >
+              Product
+            </Link>
+            <Link
+              className="flex mx-auto bg-[#1e40af] text-white h-7 w-20 justify-center rounded-full font-medium font-sans shadow-lg"
+              to="/login"
+            >
+              <p className="items-center">Login</p>
+            </Link>
+            <Link
+              className="flex mx-auto bg-[#991b1b] text-white h-7 w-24 justify-center rounded-full font-sans font-medium shadow-lg"
+              to="/regist"
+            >
+              Registrasi
+            </Link>
+          </div>
         </div>
       </div>
     </>

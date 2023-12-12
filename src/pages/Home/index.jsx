@@ -1,5 +1,5 @@
 import React from "react";
-import LandingPages from "/assert/landing_page/img_04.jpg";
+import LandingPages from "/assert/landing_page/img_04.png";
 import Coffe_capuciono from "/assert/landing_page/capucino_coffe.jpg";
 import Coffe_Susu from "/assert/landing_page/susu_coffe.png";
 import Coffe_Item from "/assert/landing_page/coffe_item.jpg";
@@ -10,10 +10,12 @@ import Barista03 from "/assert/landing_page/barista_03.jpg";
 const Home = () => {
   return (
     <>
-      <section className="flex justify-around items-center mx-auto max-w-5xl mt-24">
-        <div className="flex flex-row items-center ">
-          <div className="w-full basis-1/2">
-            <h1 className="font-bold text-8xl text-[#991b1b]">Coffee</h1>
+      <section className="flex justify-around items-center mx-auto max-w-5xl min-[800px]:mt-24">
+        <div className="flex flex-row items-center max-[780px]:flex-col border-1 border-[#000]">
+          <div className="w-full basis-1/2 max-[780px]:p-16 border-2 border-[#000]">
+            <h1 className="font-bold text-8xl text-[#991b1b] max-[780px]:text-[42px] max-[780px]:items-center">
+              Coffee
+            </h1>
             <h1 className="font-bold text-3xl text-[#991b1b]">
               Shopping for Coffee at Cafe 50%
             </h1>
