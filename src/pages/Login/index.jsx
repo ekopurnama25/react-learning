@@ -26,8 +26,8 @@ const Login = () => {
           </div>
         </div>
       </div>
-      <div className="flex items-stretch bg-grey-lighter min-h-screen max-[780px]:mx-auto max-[780px]:w-full  bg-[#000000] max-[780px]:border-2 max-[780px]:border-[#000]">
-        <section className="flex justify-around w-full mx-auto max-[780px]:w-full  h-full">
+      <section className="flex items-stretch bg-grey-lighter min-h-screen max-[780px]:mx-auto max-[780px]:min-h-screen  bg-[#000000] max-[780px]:border-2 max-[780px]:border-[#000]">
+        <div className="flex justify-around w-full mx-auto max-[780px]:w-full">
           <div className="flex flex-col items-center ">
             <div className="m-2">
               <div className="flex flex-col items-center w-[400px] h-[500px] rounded-t-lg max-[780px]:border-2 max-[780px]:border-[#000]">
@@ -71,8 +71,8 @@ const Login = () => {
               </div>
             </div>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
     </div>
   );
 };
