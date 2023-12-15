@@ -26,43 +26,45 @@ const Login = () => {
           </div>
         </div>
       </div>
-      <section className="flex items-stretch bg-grey-lighter min-h-screen max-[780px]:mx-auto max-[780px]:min-h-screen  bg-[#000000] max-[780px]:border-2 max-[780px]:border-[#000]">
+      <section className="flex items-stretch bg-grey-lighter min-h-screen max-[780px]:mx-auto max-[780px]:min-h-screen  bg-[#000000]">
         <div className="flex justify-around w-full mx-auto max-[780px]:w-full">
-          <div className="flex flex-col items-center ">
-            <div className="m-2">
-              <div className="flex flex-col items-center w-[400px] h-[500px] rounded-t-lg max-[780px]:border-2 max-[780px]:border-[#000]">
-                <img
-                  className="w-[180px] h-[190px] shadow-xl max-[780px]:w-[100px] max-[780px]:h-[105px] "
-                  src={Cooffe_Footer}
-                  alt=""
-                />
-                <h1 className="font-bold text-2xl text-[#ffffff] text-justify">
-                  LOGIN
-                </h1>
+          <div className="flex flex-col items-center w-full">
+            <div className="m-2 w-full">
+              <div className="flex flex-col min-[1000px]:items-center max-[780px]:w-full rounded-t-lg">
+                <div className="flex flex-col max-[780px]:items-center max-[780px]:w-full">
+                  <img
+                    className="w-[180px] h-[190px] shadow-xl max-[780px]:w-[100px] max-[780px]:h-[105px] "
+                    src={Cooffe_Footer}
+                    alt=""
+                  />
+                  <h1 className="font-bold text-2xl text-[#ffffff] text-justify">
+                    LOGIN
+                  </h1>
+                </div>
                 <form>
-                  <div className="mt-4 max-[780px]:w-full mx-auto max-[780px]:border-2 max-[780px]:border-[#000]">
+                  <div className="mt-4 max-[780px]:flex max-[780px]:flex-col max-[780px]:w-full max-[780px]:p-2 mx-auto">
                     <label className="block text-white text-sm font-bold mb-2 ">
                       Username
                     </label>
                     <input
-                      className="shadow appearance-none border rounded w-[400px] max-[780px]:w-24 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                      className="shadow appearance-none border rounded w-[400px] max-[780px]:w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                       id="username"
                       type="text"
                       placeholder="Username"
                     />
                   </div>
-                  <div className="mt-4">
+                  <div className="mt-4 max-[780px]:mt-0 max-[780px]:flex max-[780px]:flex-col max-[780px]:w-full max-[780px]:p-2 mx-auto">
                     <label className="block text-white text-sm font-bold mb-2 ">
                       Password
                     </label>
                     <input
-                      className="shadow appearance-none border max-[780px]:w-24 rounded w-[400px] py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                      className="shadow appearance-none border rounded w-[400px] max-[780px]:w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                       id="username"
                       type="password"
                       placeholder="Password"
                     />
                   </div>
-                  <div className=" flex mt-6 justify-end">
+                  <div className="flex mt-6 justify-end max-[780px]:m-2">
                     <button className="bg-[#1e40af] w-32 h-10 text-white font-bold rounded-lg">
                       Login
                     </button>
