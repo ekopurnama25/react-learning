@@ -16,7 +16,12 @@ const Dashboard = () => {
             </div>
           </nav>
           <Outlet />
-          <footer>Footer</footer>
+
+          <footer className="bg-[#cbd5e1] py-4 sticky top-[100vh]">
+            <div className="mx-4">
+              <h1 className="text-[#172554] ">footer@tailwind.css</h1>
+            </div>
+          </footer>
         </div>
       </div>
     </div>

@@ -2,10 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Coffe from "/assert/landing_page/coffe4.jpg";
 import { useState } from "react";
+//import { useRoutes } from "react-router-dom";
 
 const Navbar = () => {
+  //const router = useRoutes();
   const [openNavbar, setOpenNavbar] = useState(false);
-
   const handleNav = () => {
     setOpenNavbar(!openNavbar);
     console.log(openNavbar);
