@@ -1,8 +1,10 @@
 import React from "react";
 
+import { useDocumentTitle } from "../../../utils/useDocumentTitle";
 import Img_Dashboard from "/assert/landing_page/img_dash.png";
 
 const HomeAdmin = () => {
+  useDocumentTitle("Dashboard Admin");
   return (
     <>
       <div className="p-8">

@@ -128,12 +128,12 @@ const Navbar = () => {
               >
                 <p className="items-center">Login</p>
               </Link>
-              <Link
+              {/* <Link
                 className="bg-[#991b1b] text-white h-7 w-24 text-center rounded-full items-center font-sans font-medium shadow-lg"
                 to="/regist"
               >
                 Registrasi
-              </Link>
+              </Link> */}
             </ul>
           </div>
         </div>
@@ -168,12 +168,12 @@ const Navbar = () => {
             >
               <p className="items-center">Login</p>
             </Link>
-            <Link
+            {/* <Link
               className="flex mx-auto bg-[#991b1b] text-white h-7 w-24 justify-center rounded-full font-sans font-medium shadow-lg"
               to="/regist"
             >
               Registrasi
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>

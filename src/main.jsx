@@ -4,11 +4,13 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Dashboard from "./components/Dashboard";
 import Layout from "./components/Layout";
 import "./index.css";
+import CoffeAdmin from "./pages/Admin/Coffe";
 import HomeAdmin from "./pages/Admin/Homes";
 import Home from "./pages/Home/index.jsx";
 import Login from "./pages/Login/index.jsx";
-import Profile from "./pages/Profile/index.jsx";
+import Product from "./pages/Product/index.jsx";
 import Registrasi from "./pages/Registrasi/index.jsx";
+import { AuthProvider } from "./context/AuthContext.jsx";
 
 const router = createBrowserRouter([
   {
@@ -20,7 +22,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/product",
-        element: <Profile />,
+        element: <Product />,
       },
     ],
   },
@@ -39,12 +41,18 @@ const router = createBrowserRouter([
         path: "/home/admin",
         element: <HomeAdmin />,
       },
+      {
+        path: "/coffe/admin",
+        element: <CoffeAdmin />,
+      },
     ],
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>
 );

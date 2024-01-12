@@ -1,8 +1,10 @@
 import React from "react";
 import Cooffe_Footer from "/assert/landing_page/coffe_login.jpg";
 import { Link } from "react-router-dom";
+import { useDocumentTitle } from "../../utils/useDocumentTitle";
 
 const Registrasi = () => {
+  useDocumentTitle("Registrasi");
   return (
     <div className="mx-auto ">
       <div className="bg-[#000000]">
@@ -32,7 +34,7 @@ const Registrasi = () => {
           <div className="flex flex-col items-center max-[780px]:w-full">
             <div className="m-2 w-full">
               <div className="flex flex-col min-[1000px]:items-center max-[780px]:w-full rounded-t-lg">
-                <div className="flex flex-col max-[780px]:items-center max-[780px]:w-full">
+                <div className="flex flex-col items-center max-[780px]:items-center max-[780px]:w-full">
                   <img
                     className="w-[180px] h-[190px] shadow-xl max-[780px]:w-[100px] max-[780px]:h-[105px] "
                     src={Cooffe_Footer}

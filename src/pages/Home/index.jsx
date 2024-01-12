@@ -1,4 +1,5 @@
 import React from "react";
+import { useDocumentTitle } from "../../utils/useDocumentTitle";
 import LandingPages from "/assert/landing_page/img_04.png";
 import Coffe_capuciono from "/assert/landing_page/capucino_coffe.jpg";
 import Coffe_Susu from "/assert/landing_page/susu_coffe.png";
@@ -8,6 +9,7 @@ import Barista02 from "/assert/landing_page/barista-02.png";
 import Barista03 from "/assert/landing_page/barista_03.jpg";
 
 const Home = () => {
+  useDocumentTitle("Home");
   return (
     <>
       <section className="flex justify-around items-center mx-auto max-w-5xl min-[800px]:mt-24">
