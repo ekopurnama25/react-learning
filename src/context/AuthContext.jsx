@@ -7,14 +7,6 @@ export const AuthProvider = ({ children }) => {
   const [isAuthorization, setAuth] = useState();
   const [usersCheck, setUsers] = useState();
 
-  useEffect(() => {
-    // Check if user data exists in localStorage
-    const userData = localStorage.getItem("Token");
-    if (userData) {
-      setAuth(JSON.parse(userData));
-    }
-  }, []);
-
   const AuthWebCoffe = async (auth) => {
     try {
       //console.log(data);
@@ -22,6 +14,7 @@ export const AuthProvider = ({ children }) => {
         Email: auth.Email,
         Password: auth.Password,
       });
+      console.log(PostAuthorization.data);
       localStorage.setItem("Token", JSON.stringify(PostAuthorization.data));
       setAuth(PostAuthorization?.data);
     } catch (error) {
@@ -31,8 +24,9 @@ export const AuthProvider = ({ children }) => {
 
   const UsersCheckHome = async (data) => {
     try {
-      const ChcekHomeUsers = await axiosInstance.post("/auth/home", {
-        accsesToken: data,
+      //console.log(data);
+      const ChcekHomeUsers = await axiosInstance.post("/home", {
+        AccessToken: data,
       });
       console.log(ChcekHomeUsers);
       setUsers(ChcekHomeUsers);

@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Dashboard from "./components/Dashboard";
 import Layout from "./components/Layout";
 import "./index.css";
+import setupInterceptors from "./utils/setupinterceptor.js";
 import CoffeAdmin from "./pages/Admin/Coffe";
 import HomeAdmin from "./pages/Admin/Homes";
 import Home from "./pages/Home/index.jsx";
@@ -11,6 +12,7 @@ import Login from "./pages/Login/index.jsx";
 import Product from "./pages/Product/index.jsx";
 import Registrasi from "./pages/Registrasi/index.jsx";
 import { AuthProvider } from "./context/AuthContext.jsx";
+import PrivateRoute from "./utils/PrivateRouter.js";
 
 const router = createBrowserRouter([
   {
@@ -39,15 +41,25 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/home/admin",
-        element: <HomeAdmin />,
+        element: (
+          <PrivateRoute>
+            <HomeAdmin />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/coffe/admin",
-        element: <CoffeAdmin />,
+        element: (
+          <PrivateRoute>
+            <CoffeAdmin />
+          </PrivateRoute>
+        ),
       },
     ],
   },
 ]);
+
+//setupInterceptors();
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -56,3 +68,5 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     </AuthProvider>
   </React.StrictMode>
 );
+
+setupInterceptors();

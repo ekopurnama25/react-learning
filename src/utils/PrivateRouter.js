@@ -5,25 +5,28 @@ import AuthContext from "../context/AuthContext";
 const PrivateRoute = ({ children, allowRoles }) => {
   const { isAuthorization, UsersCheckHome, usersCheck } =
     useContext(AuthContext);
+
+  console.log(isAuthorization, "yes");
+  console.log(usersCheck, "cek");
   let navigate = useNavigate();
 
   useEffect(() => {
-    UsersCheckHome(isAuthorization?.accsesToken);
+    UsersCheckHome(isAuthorization?.AccessToken);
   }, []);
-  const userHasRequired =
-    isAuthorization && allowRoles.includes(isAuthorization?.roles)
-      ? true
-      : false;
+  //   const userHasRequired =
+  //     isAuthorization && allowRoles.includes(isAuthorization) ? true : false;
 
+  //   console.log(userHasRequired);
   useEffect(() => {
     if (!isAuthorization) {
       return navigate("/login");
     }
-
-    if (isAuthorization && !userHasRequired) {
-      return navigate("/login");
-    }
   });
+
+  // else if (!user && userHasRequired)
+  //   return <Navigate to="/login" replace={true} />;
+
+  return children;
 
   return children;
 };
