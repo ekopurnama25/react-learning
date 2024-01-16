@@ -6,7 +6,7 @@ const PrivateRoute = ({ children, allowRoles }) => {
   const { isAuthorization, UsersCheckHome, usersCheck } =
     useContext(AuthContext);
 
-  console.log(isAuthorization, "yes");
+  //   console.log(isAuthorization, "yes");
   console.log(usersCheck, "cek");
   let navigate = useNavigate();
 

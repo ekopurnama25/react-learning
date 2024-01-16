@@ -35,16 +35,16 @@ const setupInterceptors = () => {
 
         try {
           const response = await axiosInstance.post("/refreshToken", {
-            RefeshToken: users?.refreshToken,
+            RefeshToken: users?.RefreshToken,
           });
           if (response.status === 200) {
             localStorage.setItem("Token", JSON.stringify(response.data));
             let users = localStorage.getItem("Token")
               ? JSON.parse(localStorage.getItem("Token"))
               : null;
-            // console.log(users);
+            console.log("refresh", users);
             axiosInstance.defaults.headers.common["Authorization"] =
-              "Bearer " + users.accsesToken;
+              "Bearer " + users.AccessToken;
           }
           return axiosInstance(originalRequest);
         } catch (error) {

@@ -14,6 +14,7 @@ import Registrasi from "./pages/Registrasi/index.jsx";
 import { AuthProvider } from "./context/AuthContext.jsx";
 import PrivateRoute from "./utils/PrivateRouter.js";
 
+setupInterceptors();
 const router = createBrowserRouter([
   {
     element: <Layout />,
@@ -59,8 +60,6 @@ const router = createBrowserRouter([
   },
 ]);
 
-//setupInterceptors();
-
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthProvider>
@@ -68,5 +67,3 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     </AuthProvider>
   </React.StrictMode>
 );
-
-setupInterceptors();
