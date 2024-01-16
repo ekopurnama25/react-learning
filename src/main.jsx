@@ -13,6 +13,8 @@ import Product from "./pages/Product/index.jsx";
 import Registrasi from "./pages/Registrasi/index.jsx";
 import { AuthProvider } from "./context/AuthContext.jsx";
 import PrivateRoute from "./utils/PrivateRouter.js";
+import AddCooffeAdmin from "./pages/Admin/Coffe/AddCooffeAdmin.jsx";
+//import AddCoffe from "./pages/Admin/Coffe/AddCoffe.jsx";
 
 setupInterceptors();
 const router = createBrowserRouter([
@@ -53,6 +55,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <CoffeAdmin />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/coffe/add_coffe",
+        element: (
+          <PrivateRoute>
+            <AddCooffeAdmin />
           </PrivateRoute>
         ),
       },

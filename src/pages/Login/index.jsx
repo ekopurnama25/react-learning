@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { Formik } from "formik";
 import { Navigate } from "react-router-dom";
 
-const Login = () => {
+const Login = (children) => {
   const { AuthWebCoffe, isAuthorization } = useContext(AuthContext);
   console.log(isAuthorization);
   useDocumentTitle("Login");
