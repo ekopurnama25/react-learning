@@ -1,16 +1,20 @@
-import React from "react";
-
+import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-
 import { useDocumentTitle } from "../../../utils/useDocumentTitle";
+import CoffeContext from "../../../context/CoffeContext";
 
 const CoffeAdmin = () => {
+  const { coffe, setCoffe, getAllCoffe } = useContext(CoffeContext);
   let navigate = useNavigate();
-  useDocumentTitle("Coffe Admin");
+  useDocumentTitle("Add Coffe");
 
   const handleAddClik = () => {
     return navigate("/coffe/add_coffe");
   };
+
+  useEffect(() => {
+    getAllCoffe();
+  }, []);
 
   return (
     <>
@@ -60,30 +64,37 @@ const CoffeAdmin = () => {
                 </tr>
               </thead>
               <tbody>
-                <tr className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                  <td className="px-6 py-4">No</td>
-                  <td scope="row" className="px-6 py-4">
-                    Apple MacBook Pro 17"
-                  </td>
-                  <td className="px-6 py-4">Silver</td>
-                  <td className="px-6 py-4">Laptop</td>
-                  <td className="px-6 py-4">$2999</td>
-                  <td className="px-6 py-4">
-                    <a
-                      href="#"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                    >
-                      Edit
-                    </a>{" "}
-                    |{" "}
-                    <a
-                      href="#"
-                      className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                    >
-                      Delete
-                    </a>
-                  </td>
-                </tr>
+                {coffe &&
+                  coffe?.map((value, index) => {
+                    return (
+                      <tr className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
+                        <td className="px-6 py-4" key={value?.id}>
+                          {index + 1}
+                        </td>
+                        <td scope="row" className="px-6 py-4">
+                          <img src={value?.UrlImageCoffe} />
+                        </td>
+                        <td className="px-6 py-4"> {value?.JenisCoffe}</td>
+                        <td className="px-6 py-4"> {value?.HargaCoffe}</td>
+                        <td className="px-6 py-4">{value?.DescriptionCoffe}</td>
+                        <td className="px-6 py-4">
+                          <a
+                            href="#"
+                            className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                          >
+                            Edit
+                          </a>{" "}
+                          |{" "}
+                          <a
+                            href="#"
+                            className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                          >
+                            Delete
+                          </a>
+                        </td>
+                      </tr>
+                    );
+                  })}
               </tbody>
             </table>
           </div>

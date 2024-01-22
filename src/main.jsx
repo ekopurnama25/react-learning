@@ -14,6 +14,7 @@ import Registrasi from "./pages/Registrasi/index.jsx";
 import { AuthProvider } from "./context/AuthContext.jsx";
 import PrivateRoute from "./utils/PrivateRouter.js";
 import AddCooffeAdmin from "./pages/Admin/Coffe/AddCooffeAdmin.jsx";
+import { CoffeProvider } from "./context/CoffeContext.jsx";
 //import AddCoffe from "./pages/Admin/Coffe/AddCoffe.jsx";
 
 setupInterceptors();
@@ -73,7 +74,9 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthProvider>
-      <RouterProvider router={router} />
+      <CoffeProvider>
+        <RouterProvider router={router} />
+      </CoffeProvider>
     </AuthProvider>
   </React.StrictMode>
 );
