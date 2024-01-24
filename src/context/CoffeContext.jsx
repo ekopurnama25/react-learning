@@ -3,9 +3,12 @@ import axiosInstance from "../utils/useAxios";
 
 const CoffeContext = createContext({});
 
+const config = {
+  headers: { "content-type": "multipart/form-data" },
+};
+
 export const CoffeProvider = ({ children }) => {
   const [coffe, setCoffe] = useState();
-
   const getAllCoffe = async () => {
     try {
       const coffe = await axiosInstance.get("/coffe");
@@ -16,9 +19,20 @@ export const CoffeProvider = ({ children }) => {
     }
   };
 
+  const PostCoffeCreate = async (data) => {
+    try {
+      const postCoffeData = await axiosInstance.post("/coffe/", data, config);
+      console.log(postCoffeData, "coffe");
+      // return [postProductdata.data.data];
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   let contextCoffe = {
     coffe: coffe,
     getAllCoffe,
+    PostCoffeCreate,
   };
 
   return (
