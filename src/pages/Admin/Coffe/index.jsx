@@ -4,8 +4,7 @@ import { useDocumentTitle } from "../../../utils/useDocumentTitle";
 import CoffeContext from "../../../context/CoffeContext";
 
 const CoffeAdmin = () => {
-  const { coffe, setCoffe, getAllCoffe, DeleteCoffeData } =
-    useContext(CoffeContext);
+  const { coffe, getAllCoffe, DeleteCoffeData } = useContext(CoffeContext);
   let navigate = useNavigate();
   useDocumentTitle("Add Coffe");
   console.log(coffe);
@@ -14,17 +13,7 @@ const CoffeAdmin = () => {
   };
 
   const handleDeleteCoffe = (id) => {
-    const deleteCoff = DeleteCoffeData(id);
-    if (deleteCoff) {
-      const Delete = coffe.filter((x) => {
-        console.log(x.id !== id);
-        return x.id !== id;
-      });
-      console.log(Delete);
-      setCoffe(Delete);
-    } else {
-      console.log("gagal");
-    }
+    DeleteCoffeData(id);
   };
 
   useEffect(() => {

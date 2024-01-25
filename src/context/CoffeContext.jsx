@@ -30,11 +30,10 @@ export const CoffeProvider = ({ children }) => {
   const DeleteCoffeData = async (id) => {
     try {
       const Deletecoffe = await axiosInstance.delete(`/coffe/${id}`);
-      //   const Delete = Deletecoffe.filter((x) => {
-      //     return x.id !== id;
-      //   });
-      //   console.log(Delete);
-      //   setCoffe(Delete);
+      if (Deletecoffe) {
+        const Delete = coffe.filter((x) => x.id !== id);
+        setCoffe(Delete);
+      }
     } catch (e) {
       console.log(e);
     }
