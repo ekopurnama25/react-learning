@@ -13,7 +13,6 @@ export const CoffeProvider = ({ children }) => {
     try {
       const coffe = await axiosInstance.get("/coffe");
       setCoffe(coffe.data.coffe);
-      console.log(coffe.data.coffe);
     } catch (error) {
       console.log(error);
     }
@@ -22,17 +21,29 @@ export const CoffeProvider = ({ children }) => {
   const PostCoffeCreate = async (data) => {
     try {
       const postCoffeData = await axiosInstance.post("/coffe/", data, config);
-      console.log(postCoffeData, "coffe");
-      // return [postProductdata.data.data];
+      return [postCoffeData.data.data];
     } catch (error) {
       console.log(error);
     }
   };
 
+  const DeleteCoffeData = async (id) => {
+    try {
+      const Deletecoffe = await axiosInstance.delete(`/coffe/${id}`);
+      //   const Delete = Deletecoffe.filter((x) => {
+      //     return x.id !== id;
+      //   });
+      //   console.log(Delete);
+      //   setCoffe(Delete);
+    } catch (e) {
+      console.log(e);
+    }
+  };
   let contextCoffe = {
     coffe: coffe,
     getAllCoffe,
     PostCoffeCreate,
+    DeleteCoffeData,
   };
 
   return (

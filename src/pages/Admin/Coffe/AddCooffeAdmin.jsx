@@ -37,10 +37,9 @@ const AddCooffeAdmin = () => {
       try {
         formData.append("JenisCoffe", JenisCoffe);
         formData.append("HargaCoffe", HargaCoffe);
-        formData.append("ImagesCoffe", ImagesCoffe);
+        formData.append("image", ImagesCoffe);
         formData.append("DescriptionCoffe", DescriptionCoffe);
         const res = await PostCoffeCreate(formData);
-        console.log(res, "okoko");
         if (res) {
           return navigate("/coffe/admin/");
         }

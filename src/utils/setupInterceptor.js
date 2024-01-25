@@ -8,7 +8,6 @@ const setupInterceptors = () => {
         : null;
       //console.log("ok", users);
       if (users) {
-        console.log("ok", users?.AccessToken);
         config.headers["Authorization"] = "Bearer " + users?.AccessToken;
       }
       return config;
@@ -42,7 +41,6 @@ const setupInterceptors = () => {
             let users = localStorage.getItem("Token")
               ? JSON.parse(localStorage.getItem("Token"))
               : null;
-            console.log("refresh", users);
             axiosInstance.defaults.headers.common["Authorization"] =
               "Bearer " + users.AccessToken;
           }

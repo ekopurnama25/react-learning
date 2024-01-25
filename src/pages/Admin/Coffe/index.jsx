@@ -4,12 +4,27 @@ import { useDocumentTitle } from "../../../utils/useDocumentTitle";
 import CoffeContext from "../../../context/CoffeContext";
 
 const CoffeAdmin = () => {
-  const { coffe, setCoffe, getAllCoffe } = useContext(CoffeContext);
+  const { coffe, setCoffe, getAllCoffe, DeleteCoffeData } =
+    useContext(CoffeContext);
   let navigate = useNavigate();
   useDocumentTitle("Add Coffe");
-
+  console.log(coffe);
   const handleAddClik = () => {
     return navigate("/coffe/add_coffe");
+  };
+
+  const handleDeleteCoffe = (id) => {
+    const deleteCoff = DeleteCoffeData(id);
+    if (deleteCoff) {
+      const Delete = coffe.filter((x) => {
+        console.log(x.id !== id);
+        return x.id !== id;
+      });
+      console.log(Delete);
+      setCoffe(Delete);
+    } else {
+      console.log("gagal");
+    }
   };
 
   useEffect(() => {
@@ -67,10 +82,11 @@ const CoffeAdmin = () => {
                 {coffe &&
                   coffe?.map((value, index) => {
                     return (
-                      <tr className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                        <td className="px-6 py-4" key={value?.id}>
-                          {index + 1}
-                        </td>
+                      <tr
+                        key={value?.id}
+                        className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700"
+                      >
+                        <td className="px-6 py-4">{index + 1}</td>
                         <td scope="row" className="px-6 py-4">
                           <img src={value?.UrlImageCoffe} />
                         </td>
@@ -78,19 +94,18 @@ const CoffeAdmin = () => {
                         <td className="px-6 py-4"> {value?.HargaCoffe}</td>
                         <td className="px-6 py-4">{value?.DescriptionCoffe}</td>
                         <td className="px-6 py-4">
-                          <a
-                            href="#"
-                            className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-                          >
+                          <a className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
                             Edit
                           </a>{" "}
                           |{" "}
-                          <a
-                            href="#"
+                          <button
+                            onClick={() => {
+                              handleDeleteCoffe(value?.id);
+                            }}
                             className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                           >
                             Delete
-                          </a>
+                          </button>
                         </td>
                       </tr>
                     );

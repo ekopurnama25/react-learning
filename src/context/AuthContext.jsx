@@ -17,12 +17,10 @@ export const AuthProvider = ({ children }) => {
 
   const AuthWebCoffe = async (auth) => {
     try {
-      //console.log(data);
       const PostAuthorization = await axiosInstance.post("/auth/", {
         Email: auth.Email,
         Password: auth.Password,
       });
-      console.log(PostAuthorization.data);
       localStorage.setItem("Token", JSON.stringify(PostAuthorization.data));
       setAuth(PostAuthorization?.data);
     } catch (error) {
@@ -32,13 +30,11 @@ export const AuthProvider = ({ children }) => {
 
   const UsersCheckHome = async (data) => {
     try {
-      console.log(data);
       const ChcekHomeUsers = await axiosInstance.get("/home", {
         headers: {
           Authorization: "Bearer " + data, //the token is a variable which holds the token
         },
       });
-      console.log(ChcekHomeUsers);
       setUsers(ChcekHomeUsers);
     } catch (error) {
       console.log(error);
