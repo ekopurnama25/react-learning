@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { useDocumentTitle } from "../../utils/useDocumentTitle";
 import Coffe_Sidebar from "/assert/landing_page/sid_coffe.png";
+import CoffeContext from "../../context/CoffeContext";
 
 const Product = () => {
   useDocumentTitle("Product");
+  const { cofeepublic, getAllCoffePublic } = useContext(CoffeContext);
+
+  //console.log(cofeepublic);
+  useEffect(() => {
+    getAllCoffePublic();
+  }, []);
   return (
     <section className="mx-auto">
       <div className="flex justify-around items-center bg-[#f59e0b]">
@@ -28,17 +35,29 @@ const Product = () => {
       <div className="flex justify-around mx-auto max-[780px]:w-full max-w-5xl">
         <div className="flex flex-row">
           <div className="grid grid-cols-4 gap-4 justify-between w-[920px]">
-            <div className="flex flex-col m-4 bg-[#e2e8f0] h-[250px] rounded-lg shadow-lg">
-              <div className="flex justify-center m-3 h-[120px]">
-                <img className="w-full h-full" src={Coffe_Sidebar} alt="" />
-              </div>
-              <div className="flex justify-center mt-4 font-bold">
-                Coffy Capucino
-              </div>
-              <div className="flex justify-center mt-2 text-red-800">
-                Rp. 14.000
-              </div>
-            </div>
+            {cofeepublic &&
+              cofeepublic.map((value) => {
+                return (
+                  <div
+                    key={value.id}
+                    className="flex flex-col m-4 bg-[#e2e8f0] h-[250px] rounded-lg shadow-lg"
+                  >
+                    <div className="flex justify-center m-3 h-[120px]">
+                      <img
+                        className="w-full h-full"
+                        src={value?.UrlImageCoffe}
+                        alt=""
+                      />
+                    </div>
+                    <div className="flex justify-center mt-4 font-bold">
+                      {value?.JenisCoffe}
+                    </div>
+                    <div className="flex justify-center mt-2 text-red-800">
+                      {value?.HargaCoffe}
+                    </div>
+                  </div>
+                );
+              })}
           </div>
         </div>
       </div>

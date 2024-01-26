@@ -9,10 +9,21 @@ const config = {
 
 export const CoffeProvider = ({ children }) => {
   const [coffe, setCoffe] = useState();
+  const [getcoffe, setGetCoffe] = useState();
+  const [cofeepublic, setCoffePublic] = useState();
   const getAllCoffe = async () => {
     try {
       const coffe = await axiosInstance.get("/coffe");
       setCoffe(coffe.data.coffe);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const getAllCoffePublic = async () => {
+    try {
+      const getcoffepublic = await axiosInstance.get("/getcoffepublic");
+      setCoffePublic(getcoffepublic.data.coffe);
     } catch (error) {
       console.log(error);
     }
@@ -38,11 +49,25 @@ export const CoffeProvider = ({ children }) => {
       console.log(e);
     }
   };
+
+  const GetIdCoffeData = async (id) => {
+    try {
+      const GetIdCoffe = await axiosInstance.get(`/coffe/${id}`);
+      //console.log(GetIdCoffe.data.data);
+      setGetCoffe(GetIdCoffe.data.data);
+    } catch (e) {
+      console.log(e);
+    }
+  };
   let contextCoffe = {
     coffe: coffe,
+    getcoffe: getcoffe,
+    cofeepublic: cofeepublic,
     getAllCoffe,
     PostCoffeCreate,
     DeleteCoffeData,
+    GetIdCoffeData,
+    getAllCoffePublic,
   };
 
   return (

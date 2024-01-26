@@ -16,6 +16,11 @@ const CoffeAdmin = () => {
     DeleteCoffeData(id);
   };
 
+  const handleUpdateCoffe = (id) => {
+    console.log(id);
+    navigate(`/coffe/update_coffe/${id}`);
+  };
+
   useEffect(() => {
     getAllCoffe();
   }, []);
@@ -77,15 +82,24 @@ const CoffeAdmin = () => {
                       >
                         <td className="px-6 py-4">{index + 1}</td>
                         <td scope="row" className="px-6 py-4">
-                          <img src={value?.UrlImageCoffe} />
+                          <img
+                            src={value?.UrlImageCoffe}
+                            width={250}
+                            height={150}
+                          />
                         </td>
                         <td className="px-6 py-4"> {value?.JenisCoffe}</td>
                         <td className="px-6 py-4"> {value?.HargaCoffe}</td>
                         <td className="px-6 py-4">{value?.DescriptionCoffe}</td>
                         <td className="px-6 py-4">
-                          <a className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                          <button
+                            onClick={() => {
+                              handleUpdateCoffe(value?.id);
+                            }}
+                            className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                          >
                             Edit
-                          </a>{" "}
+                          </button>{" "}
                           |{" "}
                           <button
                             onClick={() => {
