@@ -59,6 +59,19 @@ export const CoffeProvider = ({ children }) => {
       console.log(e);
     }
   };
+
+  const PutCoffeUpdate = async (id, data) => {
+    try {
+      const putCoffeData = await axiosInstance.post(
+        `/coffe/${id}`,
+        data,
+        config
+      );
+      console.log("update", putCoffeData);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   let contextCoffe = {
     coffe: coffe,
     getcoffe: getcoffe,
@@ -68,6 +81,7 @@ export const CoffeProvider = ({ children }) => {
     DeleteCoffeData,
     GetIdCoffeData,
     getAllCoffePublic,
+    PutCoffeUpdate,
   };
 
   return (
