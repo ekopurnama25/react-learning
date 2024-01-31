@@ -62,7 +62,7 @@ export const CoffeProvider = ({ children }) => {
 
   const PutCoffeUpdate = async (id, data) => {
     try {
-      const putCoffeData = await axiosInstance.post(
+      const putCoffeData = await axiosInstance.put(
         `/coffe/${id}`,
         data,
         config
