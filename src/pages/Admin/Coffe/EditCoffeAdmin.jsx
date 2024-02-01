@@ -8,16 +8,15 @@ import CoffeContext from "../../../context/CoffeContext";
 
 const EditCoffeAdmin = () => {
   useDocumentTitle("Update Coffe");
-
-  const { GetIdCoffeData, getcoffe } = useContext(CoffeContext);
+  const { GetIdCoffeData, getcoffe, PutCoffeUpdate } = useContext(CoffeContext);
+  let navigate = useNavigate();
   const { id } = useParams();
-
   useEffect(() => {
     GetIdCoffeData(id);
-  }, []);
+  }, [getcoffe]);
 
   const updateForm = useFormik({
-    initialValues: {
+    initialValues: getcoffe || {
       JenisCoffe: "",
       HargaCoffe: "",
       DescriptionCoffe: "",
@@ -27,9 +26,25 @@ const EditCoffeAdmin = () => {
       HargaCoffe: Yup.string().required("price goods is required"),
       DescriptionCoffe: Yup.string().required("wight goods is required"),
     }),
-    onSubmit: (values) => {
-      // updateProduct(values)
-      console.log(values);
+    onSubmit: async () => {
+      const { id } = updateForm.values;
+      const { JenisCoffe } = updateForm.values;
+      const { HargaCoffe } = updateForm.values;
+      const { ImagesCoffe } = updateForm.values;
+      const { DescriptionCoffe } = updateForm.values;
+      const formData = new FormData();
+      try {
+        formData.append("JenisCoffe", JenisCoffe);
+        formData.append("HargaCoffe", HargaCoffe);
+        formData.append("image", ImagesCoffe);
+        formData.append("DescriptionCoffe", DescriptionCoffe);
+        const res = await PutCoffeUpdate(id, formData);
+        res.data.filter((x) => x.id !== id);
+        getcoffe(res);
+        navigate("/coffe/admin");
+      } catch (error) {
+        console.log(error);
+      }
     },
   });
   return (
@@ -50,7 +65,7 @@ const EditCoffeAdmin = () => {
                     name="Id"
                     placeholder="Nama Coffe ..."
                     onChange={updateForm.handleChange}
-                    values={getcoffe?.id}
+                    defaultValue={getcoffe?.id}
                   />
                   <p className="pb-2">Name Coffe</p>
                   <input
@@ -60,7 +75,7 @@ const EditCoffeAdmin = () => {
                     name="JenisCoffe"
                     placeholder="Nama Coffe ..."
                     onChange={updateForm.handleChange}
-                    value={getcoffe?.JenisCoffe}
+                    defaultValue={getcoffe?.JenisCoffe}
                   />
                   {updateForm.errors.JenisCoffe && (
                     <p>{updateForm.errors.JenisCoffe}</p>
@@ -74,7 +89,7 @@ const EditCoffeAdmin = () => {
                     type="number"
                     name="HargaCoffe"
                     onChange={updateForm.handleChange}
-                    value={getcoffe?.HargaCoffe}
+                    defaultValue={getcoffe?.HargaCoffe}
                     placeholder="Harga Coffe ..."
                   />
                   {updateForm.errors.HargaCoffe && (
@@ -107,7 +122,7 @@ const EditCoffeAdmin = () => {
                     id="DescriptionCoffe"
                     name="DescriptionCoffe"
                     onChange={updateForm.handleChange}
-                    value={getcoffe?.DescriptionCoffe}
+                    defaultValue={getcoffe?.DescriptionCoffe}
                     placeholder="Harga Coffe ..."
                   />
                   {updateForm.errors.DescriptionCoffe && (

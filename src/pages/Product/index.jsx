@@ -14,7 +14,7 @@ const Product = () => {
   return (
     <section className="mx-auto">
       <div className="flex justify-around items-center bg-[#f59e0b]">
-        <div className="flex flex-row bg-[#f59e0b] h-16">
+        <div className="flex justify-around flex-row items-center bg-[#f59e0b] w-full h-16">
           <div className="flex flex-row items-center bg-[#f59e0b] w-[920px] max-[780px]:w-full h-16 ">
             <div className="flex m-4 w-full">
               <input
@@ -40,7 +40,7 @@ const Product = () => {
                 return (
                   <div
                     key={value.id}
-                    className="flex flex-col m-4 bg-[#e2e8f0] h-[250px] max-[780px]:h-[170px] rounded-lg shadow-lg"
+                    className="flex flex-col m-4 bg-[#e2e8f0] h-[250px] max-[780px]:h-[180px] rounded-lg shadow-lg"
                   >
                     <div className="flex justify-center m-3 h-[120px] max-[780px]:h-[90px]">
                       <img

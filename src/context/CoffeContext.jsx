@@ -1,6 +1,5 @@
 import React, { createContext, useState, useEffect } from "react";
 import axiosInstance from "../utils/useAxios";
-
 const CoffeContext = createContext({});
 
 const config = {
@@ -67,7 +66,7 @@ export const CoffeProvider = ({ children }) => {
         data,
         config
       );
-      console.log("update", putCoffeData);
+      return putCoffeData;
     } catch (error) {
       console.log(error);
     }
