@@ -13,7 +13,7 @@ const EditCoffeAdmin = () => {
   const { id } = useParams();
   useEffect(() => {
     GetIdCoffeData(id);
-  }, [getcoffe]);
+  }, []);
 
   const updateForm = useFormik({
     initialValues: getcoffe || {
@@ -39,8 +39,8 @@ const EditCoffeAdmin = () => {
         formData.append("image", ImagesCoffe);
         formData.append("DescriptionCoffe", DescriptionCoffe);
         const res = await PutCoffeUpdate(id, formData);
-        res.data.filter((x) => x.id !== id);
-        getcoffe(res);
+        //res.data.filter((x) => x.id !== id);
+        //getcoffe(res);
         navigate("/coffe/admin");
       } catch (error) {
         console.log(error);

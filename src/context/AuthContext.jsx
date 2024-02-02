@@ -30,14 +30,21 @@ export const AuthProvider = ({ children }) => {
 
   const UsersCheckHome = async (data) => {
     try {
-      const ChcekHomeUsers = await axiosInstance.get("/home", {
-        headers: {
-          Authorization: "Bearer " + data, //the token is a variable which holds the token
-        },
-      });
+      const ChcekHomeUsers = await axiosInstance.get("/home", data);
       setUsers(ChcekHomeUsers);
     } catch (error) {
       console.log(error);
+    }
+  };
+
+  const LogoutUsers = async (data) => {
+    try {
+      const logout = await axiosInstance.post("/logout");
+      localStorage.clear();
+      setAuth(null);
+      return logout;
+    } catch (e) {
+      console.log(e);
     }
   };
 
@@ -46,6 +53,7 @@ export const AuthProvider = ({ children }) => {
     usersCheck: usersCheck,
     UsersCheckHome,
     AuthWebCoffe,
+    LogoutUsers,
   };
 
   return (

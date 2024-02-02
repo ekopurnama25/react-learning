@@ -84,8 +84,8 @@ const CoffeAdmin = () => {
                         <td scope="row" className="px-6 py-4">
                           <img
                             src={value?.UrlImageCoffe}
-                            width={250}
-                            height={150}
+                            width={100}
+                            height={100}
                           />
                         </td>
                         <td className="px-6 py-4"> {value?.JenisCoffe}</td>
