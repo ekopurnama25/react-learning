@@ -4,11 +4,16 @@
 <br/>
 <img src="https://github.com/ekopurnama25/react-learning/blob/master/PAGE_WEB_COFFE/03.PNG" />
 <br/>
-<img src="https://github.com/ekopurnama25/react-learning/blob/master/PAGE_WEB_COFFE/04.PNG" />
+<center>
+<img src="https://github.com/ekopurnama25/react-learning/blob/master/PAGE_WEB_COFFE/04.PNG" /></center>
 <br/>
+<center>
 <img src="https://github.com/ekopurnama25/react-learning/blob/master/PAGE_WEB_COFFE/05.PNG" />
+</center>
 <br/>
+<center>
 <img src="https://github.com/ekopurnama25/react-learning/blob/master/PAGE_WEB_COFFE/06.PNG" />
+</center>
 <br/>
 <img src="https://github.com/ekopurnama25/react-learning/blob/master/PAGE_WEB_COFFE/07.PNG" />
 <br/>
