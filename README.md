@@ -4,7 +4,7 @@
 <br/>
 <img src="https://github.com/ekopurnama25/react-learning/blob/master/PAGE_WEB_COFFE/03.PNG" />
 <br/>
-<img src="https://github.com/ekopurnama25/react-learning/blob/master/PAGE_WEB_COFFE/04.PNG" /></
+<img src="https://github.com/ekopurnama25/react-learning/blob/master/PAGE_WEB_COFFE/04.PNG" />
 <img src="https://github.com/ekopurnama25/react-learning/blob/master/PAGE_WEB_COFFE/05.PNG" />
 <img src="https://github.com/ekopurnama25/react-learning/blob/master/PAGE_WEB_COFFE/06.PNG" />
 <br/>
